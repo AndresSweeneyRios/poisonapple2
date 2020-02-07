@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>poisonapple2</title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but poisonapple2 doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+    <style>
+        @font-face{
+            font-family: 'Prompt';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            src: url(./prompt.woff2);
+        }
+    </style>
+    <head>
+        <link rel="preload" href="./prompt.woff2" as="font" type="font/woff2" crossorigin>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name="description" content="Andres Sweeney-Rios (Poison Apple), freelance frontend web developer and indie game developer for hire. Feel free to contact me with any offers, feedback, or questions.">
+        <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+        <title>Andres Sweeney-Rios</title>
+    </head>
+    <body>
+        <noscript>
+            <strong>Sorry, but this website doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+        </noscript>
+        <div id="app"></div>
+        <!-- built files will be auto injected -->
+    </body>
 </html>
