@@ -5,9 +5,19 @@
     margin: 0
     padding: 0
     font-family: Prompt
+    scrollbar-color: var(--pink) var(--black)
+    scrollbar-width: thin
+    -webkit-tap-highlight-color: transparent
 
 body, html
-    height: 100%
     background-color: var(--black)
     color: var(--white)
+
+::-webkit-scrollbar 
+    width: 7px
+    height: 7px
+    background-color: transparent
+    
+::-webkit-scrollbar-thumb
+    background: var(--pink)
     

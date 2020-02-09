@@ -21,6 +21,9 @@
         // align-items: center
         margin-left: 40px
 
+        @media (max-width: 1000px)
+            margin: 0
+
         > h3
             font-size: 18px
             font-weight: 200

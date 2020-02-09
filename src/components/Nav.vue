@@ -1,5 +1,7 @@
 <template lang="pug">
-    section.nav
+    section.nav( 
+        :class="{ closed }" 
+    )
         router-link( tag="h1" to="/" ) Andres <br> Sweeney-Rios
 
         h4 Web Developer & Game Developer for hire.
@@ -17,6 +19,14 @@
         p Poison Apple#9351
 
         Social
+
+        button.hamburger( 
+            @click="closed = !closed" 
+            :class="{ closed }" 
+        )
+            .bar1
+            .bar2
+            .bar3
 </template>
 
 <script>
@@ -25,11 +35,27 @@
     export default {
         data () {
             return {
+                closed: true,
+
                 links: [
                     ['/skills', 'Skills'],
                     ['/projects', 'Projects'],
                     ['/gallery', 'Gallery'],
                 ]
+            }
+        },
+
+        mounted () {
+            Object.assign(this, {
+                closed: this.$route.path !== '/'
+            })
+        },
+
+        watch: {
+            $route ({ path }) {
+                Object.assign(this, {
+                    closed: path !== '/'
+                })
             }
         },
 
@@ -46,17 +72,75 @@
         align-items: flex-start
         justify-content: center
         position: fixed
-        bottom: 0
+        top: 0
         left: 0
         padding: 30px
-        height: 100%
+        height: 100vh
         width: 280px
-        background-color: rgba(45, 40, 48, 0.9)
+        background-color: rgba(45, 40, 48, 0.93)
         z-index: 1
+        transition: left 0.2s
+
+        .hamburger
+            position: absolute
+            top: 0
+            right: -60px
+            width: 60px
+            height: 60px
+            border: none
+            background: transparent
+            outline: none
+            cursor: pointer
+            display: none
+
+            @media (max-width: 1100px)
+                display: block
+
+            > *
+                position: absolute
+                background-color: var(--white)
+                height: 4px
+                width: 33px
+                left: calc((60px - 33px) / 2)
+                transform: rotate(0deg)
+                transition: left 0.3s, top 0.3s, transform 0.3s, background 0.3s
+                pointer-events: none
+                margin: auto
+                display: inline-block
+
+            &:hover > *
+                background-color: var(--pink)
+
+            .bar1
+                top: 30%
+
+            .bar2
+                top: calc(45% + 1px)
+
+            .bar3
+                bottom: 30%
+
+            &:not(.closed)
+                .bar1, .bar2
+                    top: 40%
+                    transform: rotate(45deg)
+
+                .bar3
+                    top: 40%
+                    bottom: auto
+                    transform: rotate(-45deg)
+                
+
+        @media (max-width: 1100px)
+            &.closed
+                left: -280px
 
         @media (max-width: 600px)
-            width: 100vw
+            width: calc(100% - 60px)
             padding: 60px
+
+            &.closed
+                left: calc(-100% + 60px)
 
         .links
             display: flex

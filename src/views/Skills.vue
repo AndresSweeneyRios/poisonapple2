@@ -19,12 +19,23 @@
 
 <style lang="sass" scoped>
     section.skills
-        padding-left: 281px
         display: flex
         flex-direction: column
         justify-content: center
         align-items: center
-        height: 100%
+        min-height: 100vh
+        padding-left: 280px
+        overflow-x: hidden
+
+        @media (max-width: 1100px)
+            padding-left: 0
+
+        @media (max-width: 1000px)
+            display: block
+            padding: 60px
+
+            > div
+                flex-direction: column
 
         > div
             display: flex

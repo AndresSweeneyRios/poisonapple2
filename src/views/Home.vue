@@ -144,13 +144,17 @@
                     alpha: true,
                 })
 
+                Object.assign(this, { renderer })
+
                 renderer.setSize( window.innerWidth, window.innerHeight )
 
                 this.$refs.threejs.appendChild( renderer.domElement )
 
                 const animate = () => {
-                    requestAnimationFrame( animate )
-                    renderer.render( scene, camera )
+                    if (renderer.domElement) {
+                        requestAnimationFrame( animate )
+                        renderer.render( scene, camera )
+                    }
                 }
 
                 animate()
@@ -159,13 +163,19 @@
 
         mounted () {
             this.makeBlocks()
-        }
+        },
+
+        destroyed () {
+            this.renderer.forceContextLoss()
+            this.renderer.domElement = null
+        },
     }
 </script>
 
 <style lang="sass" scoped>
     section.home
-        height: 100%
+        height: 100vh
+        overflow: hidden
 
         .threejs
             width: 100%

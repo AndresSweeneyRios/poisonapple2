@@ -6,9 +6,6 @@
 
 <style lang="sass">
     @import './assets/sass/global'
-
-    section.app
-        height: 100%
 </style>
 
 <script>
