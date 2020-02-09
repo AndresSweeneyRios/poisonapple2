@@ -1,6 +1,6 @@
 <template lang="pug">
-    section.skills
-        .s( ref="s" )
+    section.home
+        .threejs( ref="threejs" )
 </template>
 
 <script>
@@ -146,7 +146,7 @@
 
                 renderer.setSize( window.innerWidth, window.innerHeight )
 
-                this.$refs.s.appendChild( renderer.domElement )
+                this.$refs.threejs.appendChild( renderer.domElement )
 
                 const animate = () => {
                     requestAnimationFrame( animate )
@@ -164,10 +164,10 @@
 </script>
 
 <style lang="sass" scoped>
-    section.skills
+    section.home
         height: 100%
 
-        .s
+        .threejs
             width: 100%
             height: 100%
             overflow: hidden

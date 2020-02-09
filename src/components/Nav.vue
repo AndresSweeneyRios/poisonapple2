@@ -1,14 +1,17 @@
 <template lang="pug">
     section.nav
-        h1 Andres <br> Sweeney-Rios
+        router-link( tag="h1" to="/" ) Andres <br> Sweeney-Rios
 
         h4 Web Developer & Game Developer for hire.
 
         .links
-            router-link( to="#" aria-label="Skills" ) Skills
-            router-link( to="#" aria-label="Projects" ) Projects
-            router-link( to="#" aria-label="Gallery" ) Gallery
-            //- router-link( to="#" title="Contact" ) Contact
+            router-link( 
+                v-for="([path, name], key) in links"
+                :key="key"
+                :aria-label="name"
+                :to="path"
+                :class="{ current: $route.path === path }"
+            ) {{ name }}
 
         p andrewarivers@gmail.com
         p Poison Apple#9351
@@ -20,9 +23,19 @@
     import Social from './Social'
 
     export default {
+        data () {
+            return {
+                links: [
+                    ['/skills', 'Skills'],
+                    ['/projects', 'Projects'],
+                    ['/gallery', 'Gallery'],
+                ]
+            }
+        },
+
         components: {
             Social
-        }
+        },
     }
 </script>
 
@@ -37,7 +50,7 @@
         left: 0
         padding: 30px
         height: 100%
-        width: 281px
+        width: 280px
         background-color: rgba(45, 40, 48, 0.9)
         z-index: 1
 
@@ -58,6 +71,10 @@
             font-weight: 200
             font-size: 30px
             line-height: 39px
+            cursor: pointer
+
+            &:hover
+                color: var(--pink)
 
         h4
             font-weight: 200
@@ -86,8 +103,11 @@
             font-size: 16px
 
             &:hover
+                &::before
+                    width: 100%
+
+            &.current
                 color: var(--black)
-                
                 &::after
                     width: 100%
 
@@ -96,17 +116,19 @@
                 z-index: -1
                 left: 0
                 top: 0
-                width: 100%
+                width: 0
                 height: 100%
                 content: ''
-                // background-color: rgba(darkgray, 0.1)
+                background-color: rgba(darkgray, 0.1)
+                transition: width 0.25s
 
             &::after
                 position: absolute
                 z-index: -1
                 left: 0
                 top: 0
-                width: 2px
+                width: 0
+                border-left: 2px solid var(--white)
                 height: 100%
                 content: ''
                 background-color: var(--white)
