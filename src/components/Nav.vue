@@ -38,8 +38,8 @@
                 closed: true,
 
                 links: [
-                    ['/skills', 'Skills'],
                     ['/projects', 'Projects'],
+                    ['/skills', 'Skills'],
                     ['/gallery', 'Gallery'],
                 ]
             }
@@ -78,7 +78,7 @@
         height: 100vh
         width: 280px
         background-color: rgba(45, 40, 48, 0.93)
-        z-index: 1
+        z-index: 3
         transition: left 0.2s
 
         .hamburger
@@ -135,7 +135,7 @@
             &.closed
                 left: -280px
 
-        @media (max-width: 600px)
+        @media (max-width: 500px)
             width: calc(100% - 60px)
             padding: 60px
 
