@@ -39,8 +39,8 @@
 
                 links: [
                     ['/projects', 'Projects'],
-                    ['/skills', 'Skills'],
                     ['/gallery', 'Gallery'],
+                    ['/skills', 'Skills'],
                 ]
             }
         },

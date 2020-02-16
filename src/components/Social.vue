@@ -52,7 +52,7 @@
         display: inline-block
 
         > svg
-            // filter: saturate(80%)
+            filter: saturate(80%)
 
         svg, .inner
             pointer-events: none

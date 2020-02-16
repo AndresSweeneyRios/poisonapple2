@@ -21,7 +21,7 @@
 </template>
 
 <script>
-    import projects from '@/assets/projects.js'
+    import projects from '@/assets/projects/index.js'
     import Project from '@/components/Project'
 
     export default {

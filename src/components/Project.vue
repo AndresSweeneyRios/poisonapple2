@@ -33,7 +33,7 @@
             .handles( v-if="project.handles" )
                 a( 
                     v-for="({ type, value }, key) in project.handles"
-                    :href="`https://${ type }.com/${ type === instagram ? '' : '@' }${ value }`"
+                    :href="`https://${ type }.com/${ type === 'instagram' ? '' : '@' }${ value }`"
                 ) @{{ value }}
 </template>
 
