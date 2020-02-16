@@ -13,11 +13,11 @@
             )
 
         .scroller
-            button.previous( @click="previous" )
+            button.previous( @click="previous" aria-label="Previous project" )
 
             p {{ index + 1 }}<span></span>{{ projects.length }}
 
-            button.next( @click="next" )
+            button.next( @click="next" aria-label="Next project" )
 </template>
 
 <script>
