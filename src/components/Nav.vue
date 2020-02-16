@@ -4,7 +4,7 @@
     )
         router-link( tag="h1" to="/" ) Andres <br> Sweeney-Rios
 
-        h4 Web Developer & Game Developer for hire.
+        h4 Game Developer & Frontend Web Specialist for hire.
 
         .links
             router-link( 
