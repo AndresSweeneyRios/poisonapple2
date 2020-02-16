@@ -51,7 +51,7 @@ export default {
         ],
 
         description: `
-            Built a custom Minecraft launcher for [Firefig.ht](https://https://firefig.ht/) in Vue.js.
+            Built a custom Minecraft launcher for Firefig.ht in Vue.js.
         `,
 
         links: [
@@ -168,9 +168,28 @@ export default {
         ]
     },
 
+    apples_cards: {
+        title: "Apple's Cards",
+        id: 'apples_cards',
+
+        left: true,
+
+        description: `
+            A Card's Against Humanity clone.
+        `,
+
+        links: [
+            {
+                type: "github",
+                url: "https://github.com/Andr3wRiv3rs/apples_cards"
+            },
+        ]
+    },
+
     // devcord_challenges: {
     //     title: "Devcord Challenges",
     //     id: "devcord_challenges",
+    //     left: true,
 
     //     description: `
     //         A community driven coding challenge app, 
@@ -178,15 +197,15 @@ export default {
     //     `,
 
     //     links: [
-    //         {
-    //             type: "devcord",
-    //             url: "https://challenge.devcord.com"
-    //         },
+    //         // {
+    //         //     type: "devcord",
+    //         //     url: "https://challenge.devcord.com"
+    //         // },
 
-    //         {
-    //             type: "discord",
-    //             url: "https://discord.gg/EhTaURr"
-    //         }
+    //         // {
+    //         //     type: "discord",
+    //         //     url: "https://discord.gg/EhTaURr"
+    //         // }
     //     ],
     // },
 
@@ -300,20 +319,20 @@ export default {
         left: true
     }, 
     
-    worm_io: {
-        title: "Untitled Worm I/O",
+    // worm_io: {
+    //     title: "Untitled Worm I/O",
 
-        id: "worm_io",
+    //     id: "worm_io",
 
-        description: "A Slither.io inspired project, utilizing cryptocurrency as a driving mechanic.",
+    //     description: "A Slither.io inspired project, utilizing cryptocurrency as a driving mechanic.",
 
-        links: [
-            {
-                type: "github",
-                url: "https://github.com/Andr3wRiv3rs/worm-io"
-            }
-        ]
-    }, 
+    //     links: [
+    //         {
+    //             type: "github",
+    //             url: "https://github.com/Andr3wRiv3rs/worm-io"
+    //         }
+    //     ]
+    // }, 
     
     shh: {
         title: "Shh",
@@ -331,22 +350,22 @@ export default {
         left: true
     }, 
     
-    bearmon: {
-        title: "Bearmon",
-        id: "bearmon",
+    // bearmon: {
+    //     title: "Bearmon",
+    //     id: "bearmon",
 
-        description: "An online multiplayer turn based RPG for the 2017 Bear Week jam on Game Jolt.",
+    //     description: "An online multiplayer turn based RPG for the 2017 Bear Week jam on Game Jolt.",
 
-        links: [
-            {
-                type: "gamejolt",
-                url: "https://gamejolt.com/games/bearmon/276536"
-            }, {
-                type: "github",
-                url: "https://github.com/Andr3wRiv3rs/bearmon-2017"
-            }
-        ],
+    //     links: [
+    //         {
+    //             type: "gamejolt",
+    //             url: "https://gamejolt.com/games/bearmon/276536"
+    //         }, {
+    //             type: "github",
+    //             url: "https://github.com/Andr3wRiv3rs/bearmon-2017"
+    //         }
+    //     ],
 
-        left: true
-    }
+    //     left: true
+    // }
 }

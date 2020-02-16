@@ -33,7 +33,7 @@
             position: fixed
             width: 100%
             overflow: hidden
-            top: 60%
+            top: 20%
             height: 100%
             // transform: perspective(20px) rotateX(30deg) scaleY(0.3)
 

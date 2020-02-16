@@ -1,21 +1,33 @@
 <template lang="pug">
     section.social
-        a.socialButton.twitter( href="#" aria-label="Twitter account" )
+        a.socialButton.twitter( 
+            href="https://twitter.com/Andr3wRiv3rs" 
+            aria-label="Twitter account" 
+        )
             TwitterIcon
             .inner
                 TwitterIcon
 
-        a.socialButton.gamejolt( href="#" aria-label="Game Jolt account" )
+        a.socialButton.gamejolt( 
+            href="https://gamejolt.com/@AndrewRivers" 
+            aria-label="Game Jolt account" 
+        )
             GameJoltIcon
             .inner
                 GameJoltIcon
 
-        a.socialButton.github( href="#" aria-label="GitHub account" )
+        a.socialButton.github( 
+            href="https://github.com/Andr3wRiv3rs" 
+            aria-label="GitHub account" 
+        )
             GithubIcon
             .inner
                 GithubIcon
                 
-        a.socialButton.soundcloud( href="#" aria-label="SoundCloud account" )
+        a.socialButton.soundcloud( 
+            href="https://soundcloud.com/poison_apple" 
+            aria-label="SoundCloud account" 
+        )
             SoundcloudIcon
             .inner
                 SoundcloudIcon
