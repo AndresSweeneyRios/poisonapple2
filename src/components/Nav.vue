@@ -191,7 +191,7 @@
                     width: 100%
 
             &.current
-                color: black
+                color: var(--black)
                 &::after
                     width: 100%
 
