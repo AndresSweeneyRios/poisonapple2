@@ -28,7 +28,7 @@ export default [
     "paint_drip",
     "alucard",
     "pinkpixelbg",
-    "polygon",
+    // "polygon",
     "lowpoly_applemosh",
     "cherry",
     "waterfall",
