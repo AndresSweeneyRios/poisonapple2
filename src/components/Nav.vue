@@ -38,7 +38,7 @@
                 closed: true,
 
                 links: [
-                    ['/projects', 'Projects'],
+                    ['/', 'Projects'],
                     ['/gallery', 'Gallery'],
                     ['/skills', 'Skills'],
                 ]

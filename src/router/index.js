@@ -5,19 +5,19 @@ import Home from '@/views/Home'
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: Home
-    //component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
-  },
+//   {
+//     path: '/',
+//     name: 'home',
+//     component: Home
+//     //component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
+//   },
   {
     path: '/skills',
     name: 'skills',
     component: () => import(/* webpackChunkName: "skills" */ '../views/Skills.vue')
   },
   {
-    path: '/projects',
+    path: '/',
     name: 'projects',
     component: () => import(/* webpackChunkName: "projects" */ '../views/Projects.vue')
   },
