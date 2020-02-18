@@ -1,8 +1,7 @@
 <template lang="pug">
-    section.projects
-
+    section.projects( ref="projects" )
         .wrapper( 
-            :style="{ top: `-${100*index}vh` }" 
+            :style="{ top: `-${100*index}%` }" 
             @wheel="onWheel"
         )
 
@@ -10,6 +9,7 @@
                 v-for="(project, key) of projects"
                 :project="project"
                 :key="key"
+                :projectKey="key"
             )
 
         .scroller
@@ -45,7 +45,7 @@
                 })
             },
 
-            next() {
+            next () {
                 if (this.index < this.projects.length - 1) Object.assign( this, {
                     index: this.index + 1
                 })
@@ -54,7 +54,43 @@
             onWheel ({ deltaY }) {
                 if (deltaY < 0) this.previous()
                 if (deltaY > 0) this.next()
-            }
+            },
+        },
+        
+        mounted () {
+            window.addEventListener('keydown', ({ code }) => {
+                switch (code) {
+                    case 'ArrowUp':
+                        this.previous()
+                        break
+
+                    case 'ArrowDown':
+                        this.next()
+                        break
+                }
+            })
+
+            this.$refs.projects.addEventListener('touchmove', event => event.preventDefault(), false)
+
+            this.$refs.projects.addEventListener('touchstart', event => {
+                const [{ pageY: startY }] = event.changedTouches
+                const startTime = Date.now()
+
+                const endHandler = ({ changedTouches }) => {
+                    const [{ pageY }] = changedTouches
+                    const distY = pageY - startY
+
+                    if (distY > 80) this.previous()
+                    if (distY < -80) this.next()
+
+                    window.removeEventListener('touchend', endHandler, false)
+                }
+        
+                window.addEventListener('touchend', endHandler, false)
+
+                // event.preventDefault()
+
+            }, false)
         },
     }
 </script>
@@ -62,13 +98,14 @@
 <style lang="sass" scoped>
     section.projects
         padding-left: 280px
-        position: relative
         display: flex
         flex-wrap: wrap
-        overflow: hidden
-        height: 100vh
+        height: 100%
         justify-content: center
         align-items: center
+        overflow: hidden
+        position: fixed
+        width: 100%
 
         .scroller
             width: 40px
@@ -150,11 +187,14 @@
         @media (max-width: 1100px)
             padding-left: 0
 
+            .scroller
+                right: 30px
+
         .wrapper
             flex-grow: 1
-            min-height: 100vh
+            height: 100%
             position: relative
             top: 0
-            transition: top 0.3s
+            transition: top 0.2s
             
 </style>

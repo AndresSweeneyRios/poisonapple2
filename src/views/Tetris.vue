@@ -148,6 +148,7 @@
                 started: false,
                 loopTimeout: null,
                 highlightHeld: null,
+                isDemo: false,
             }
         },
 
@@ -335,7 +336,10 @@
                     queue: shuffle([ ...blockTypes, ...blockTypes ])
                 })
 
-                if (this.demo) {
+                this.held.x = Math.floor(this.canvas.width / 2) - 2
+                this.held.rotation = 0
+
+                if (this.isDemo) {
                     // this.keydown('arrowup')
 
                     this.held.rotation = Math.floor(Math.random()*4)
@@ -352,13 +356,12 @@
                         this.npc.direction = 1
                         this.npc.pos += this.npc.direction * this.npc.offset
                     }
-                } else {
-                    this.held.x = Math.floor(this.canvas.width / 2) - 2
-                    this.held.rotation = 0
                 }
 
                 this.held.block = this.queue.splice(0,1)[0]
                 this.held.y = -3
+
+                console.log(this.held.x)
             },
 
             gameLoop () {
@@ -380,7 +383,7 @@
 
                 Object.assign(this, { 
                     speed: 1000/120, 
-                    demo: true,
+                    isDemo: true,
                     npc: {
                         pos, direction, offset
                     }
@@ -442,9 +445,11 @@
                 this.grid.push(column)
             }
 
-            this.demo()
+            // this.demo()
 
             this.next()
+            
+            this.start()
 
             this.gameLoop()
         },

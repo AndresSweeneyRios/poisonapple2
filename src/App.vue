@@ -17,3 +17,8 @@
         }
     }
 </script>
+
+<style lang="sass">
+    section.app
+        height: 100%
+</style>

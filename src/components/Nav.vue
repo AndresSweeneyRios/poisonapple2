@@ -2,11 +2,11 @@
     section.nav( 
         :class="{ closed }" 
     )
-        router-link( tag="h1" to="/" ) Andres <br> Sweeney-Rios
+        h1 Andres <br> Sweeney-Rios
 
         h4 Game Developer & Frontend Web Specialist for hire.
 
-        .links
+        .links( @click="closed = true" )
             router-link( 
                 v-for="([path, name], key) in links"
                 :key="key"
@@ -22,7 +22,8 @@
 
         button.hamburger( 
             @click="closed = !closed" 
-            :class="{ closed }" 
+            :class="{ closed }"
+            aria-label="Navigation menu"
         )
             .bar1
             .bar2
@@ -45,12 +46,6 @@
             }
         },
 
-        mounted () {
-            Object.assign(this, {
-                closed: this.$route.path !== '/'
-            })
-        },
-
         watch: {
             $route ({ path }) {
                 Object.assign(this, {
@@ -61,6 +56,29 @@
 
         components: {
             Social
+        },
+
+        mounted () {
+            Object.assign(this, {
+                closed: this.$route.path !== '/'
+            })
+
+            window.addEventListener('touchstart', event => {
+                const [{ pageX: startX }] = event.changedTouches
+                const startTime = Date.now()
+
+                const endHandler = ({ changedTouches }) => {
+                    const [{ pageX }] = changedTouches
+                    const distX = pageX - startX
+
+                    if (distX > 50 && startX < 50) Object.assign(this, { closed: false })
+                    if (distX < -50) Object.assign(this, { closed: true })
+
+                    window.removeEventListener('touchend', endHandler, false)
+                }
+        
+                window.addEventListener('touchend', endHandler, false)
+            }, false)
         },
     }
 </script>
@@ -75,16 +93,16 @@
         top: 0
         left: 0
         padding: 30px
-        height: 100vh
+        height: 100%
         width: 280px
-        background-color: rgba(45, 40, 48, 0.93)
+        background-color: rgb(45, 37, 48)
         z-index: 3
-        transition: left 0.2s
+        transition: left 0.1s
 
         .hamburger
             position: absolute
             top: 0
-            right: -60px
+            right: 0px
             width: 60px
             height: 60px
             border: none
@@ -92,6 +110,7 @@
             outline: none
             cursor: pointer
             display: none
+            transition: right 0.1s
 
             @media (max-width: 1100px)
                 display: block
@@ -107,6 +126,7 @@
                 pointer-events: none
                 margin: auto
                 display: inline-block
+                box-shadow: 0 0 5px 1px rgba(black, 0.4)
 
             &:hover > *
                 background-color: var(--pink)
@@ -131,16 +151,19 @@
                     transform: rotate(-45deg)
                 
 
+        &.closed > .hamburger
+            right: -60px
+
         @media (max-width: 1100px)
             &.closed
                 left: -280px
 
         @media (max-width: 500px)
-            width: calc(100% - 60px)
+            width: 100%
             padding: 60px
 
             &.closed
-                left: calc(-100% + 60px)
+                left: -100%
 
         .links
             display: flex
@@ -155,10 +178,9 @@
             font-weight: 200
             font-size: 30px
             line-height: 39px
-            cursor: pointer
 
-            &:hover
-                color: var(--pink)
+            // &:hover
+            //     color: var(--pink)
 
         h4
             font-weight: 200

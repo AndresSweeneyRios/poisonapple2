@@ -86,7 +86,7 @@
 
 <style lang="sass">
     .project
-        height: 100vh
+        height: 100%
         width: 100%
         position: relative
         display: flex
@@ -137,9 +137,16 @@
                 word-wrap: break-all
                 display: inline-block
 
+            @media (max-width: 500px)
+                h1
+                    font-size: 20px
 
-            @media (max-width: 1300px)
-                padding: 15px
+                p
+                    font-size: 15px
+
+
+            @media (max-width: 1100px)
+                padding: 30px
 
         .head
             display: flex
