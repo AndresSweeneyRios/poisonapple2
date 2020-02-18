@@ -31,16 +31,16 @@ const routes = [
     name: 'gallery',
     component: () => import(/* webpackChunkName: "gallery" */ '../views/Gallery.vue')
   },
-  {
-    path: '/blocks',
-    name: 'blocks',
-    component: () => import(/* webpackChunkName: "gallery" */ '../views/Blocks.vue')
-  },
-  {
-    path: '/tetris',
-    name: 'tetris',
-    component: () => import(/* webpackChunkName: "tetris" */ '../views/Tetris.vue')
-  },
+//   {
+//     path: '/blocks',
+//     name: 'blocks',
+//     component: () => import(/* webpackChunkName: "gallery" */ '../views/Blocks.vue')
+//   },
+//   {
+//     path: '/tetris',
+//     name: 'tetris',
+//     component: () => import(/* webpackChunkName: "tetris" */ '../views/Tetris.vue')
+//   },
 ]
 
 const router = new VueRouter({
