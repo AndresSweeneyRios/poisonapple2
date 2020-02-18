@@ -1,23 +1,22 @@
 <template lang="pug">
     section.projects( ref="projects" )
-        .wrapper( 
-            :style="{ top: `-${100*index}%` }" 
-            @wheel="onWheel"
+        //- .wrapper( 
+        //-     @wheel="onWheel"
+        //- )
+
+        Project( 
+            v-for="(project, key) of projects"
+            :project="project"
+            :key="key"
+            :projectKey="key"
         )
 
-            Project( 
-                v-for="(project, key) of projects"
-                :project="project"
-                :key="key"
-                :projectKey="key"
-            )
+        //- .scroller
+        //-     button.previous( @click="previous" aria-label="Previous project" )
 
-        .scroller
-            button.previous( @click="previous" aria-label="Previous project" )
+        //-     p {{ index + 1 }}<span></span>{{ projects.length }}
 
-            p {{ index + 1 }}<span></span>{{ projects.length }}
-
-            button.next( @click="next" aria-label="Next project" )
+        //-     button.next( @click="next" aria-label="Next project" )
 </template>
 
 <script>
@@ -39,58 +38,58 @@
         },
 
         methods: {
-            previous () {
-                if (this.index > 0) Object.assign( this, {
-                    index: this.index - 1
-                })
-            },
+            // previous () {
+            //     if (this.index > 0) Object.assign( this, {
+            //         index: this.index - 1
+            //     })
+            // },
 
-            next () {
-                if (this.index < this.projects.length - 1) Object.assign( this, {
-                    index: this.index + 1
-                })
-            },
+            // next () {
+            //     if (this.index < this.projects.length - 1) Object.assign( this, {
+            //         index: this.index + 1
+            //     })
+            // },
 
-            onWheel ({ deltaY }) {
-                if (deltaY < 0) this.previous()
-                if (deltaY > 0) this.next()
-            },
+            // onWheel ({ deltaY }) {
+            //     if (deltaY < 0) this.previous()
+            //     if (deltaY > 0) this.next()
+            // },
         },
         
         mounted () {
-            window.addEventListener('keydown', ({ code }) => {
-                switch (code) {
-                    case 'ArrowUp':
-                        this.previous()
-                        break
+            // window.addEventListener('keydown', ({ code }) => {
+            //     switch (code) {
+            //         case 'ArrowUp':
+            //             this.previous()
+            //             break
 
-                    case 'ArrowDown':
-                        this.next()
-                        break
-                }
-            })
+            //         case 'ArrowDown':
+            //             this.next()
+            //             break
+            //     }
+            // })
 
-            this.$refs.projects.addEventListener('touchmove', event => event.preventDefault(), false)
+            // this.$refs.projects.addEventListener('touchmove', event => event.preventDefault(), false)
 
-            this.$refs.projects.addEventListener('touchstart', event => {
-                const [{ pageY: startY }] = event.changedTouches
-                const startTime = Date.now()
+            // this.$refs.projects.addEventListener('touchstart', event => {
+            //     const [{ pageY: startY }] = event.changedTouches
+            //     const startTime = Date.now()
 
-                const endHandler = ({ changedTouches }) => {
-                    const [{ pageY }] = changedTouches
-                    const distY = pageY - startY
+            //     const endHandler = ({ changedTouches }) => {
+            //         const [{ pageY }] = changedTouches
+            //         const distY = pageY - startY
 
-                    if (distY > 80) this.previous()
-                    if (distY < -80) this.next()
+            //         if (distY > 80) this.previous()
+            //         if (distY < -80) this.next()
 
-                    window.removeEventListener('touchend', endHandler, false)
-                }
+            //         window.removeEventListener('touchend', endHandler, false)
+            //     }
         
-                window.addEventListener('touchend', endHandler, false)
+            //     window.addEventListener('touchend', endHandler, false)
 
                 // event.preventDefault()
 
-            }, false)
+            // }, false)
         },
     }
 </script>
@@ -103,9 +102,12 @@
         height: 100%
         justify-content: center
         align-items: center
-        overflow: hidden
-        position: fixed
+        // overflow: hidden
+        // position: fixed
         width: 100%
+        scroll-snap-type: y mandatory
+        // scroll-snap-points-y: repeat(300px)
+        // overflow-y: auto
 
         .scroller
             width: 40px
