@@ -91,7 +91,7 @@
         position: relative
         display: flex
         align-items: flex-end
-        scroll-snap-align: start
+        // scroll-snap-align: start
 
         .background
             height: 100%

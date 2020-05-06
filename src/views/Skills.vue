@@ -55,6 +55,7 @@
             return { skills: [
                 ['Languages', [
                     "JavaScript",
+                    "TypeScript",
                     "C#",
                     "Godot Script",
                     "GML",
@@ -67,6 +68,7 @@
                     "Nuxt.js",
                     "React",
                     "Next.js",
+                    "Preact",
                 ]],
 
                 ['Frontend', [

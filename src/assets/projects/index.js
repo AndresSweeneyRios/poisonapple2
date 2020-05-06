@@ -1,4 +1,5 @@
 export default {
+
     corgi_stack_3d: {
         title: "Corgi Stack 3D",
         id: "corgi_stack_3d",
@@ -41,6 +42,38 @@ export default {
             }
         ]
     },
+    
+    'webdevs.work': {
+        title: "webdevs.work",
+        id: "webdevs.work",
+
+        description: "A job board dedicated to web developers.",
+
+        links: [
+            {
+                type: "github",
+                url: "https://github.com/Andr3wRiv3rs/webdevs.work"
+            }
+        ],
+
+        // left: true
+    }, 
+
+    shh: {
+        title: "FOS",
+        id: "fos",
+
+        description: "A self-hosted end-to-end encrypted chat platform.",
+
+        links: [
+            {
+                type: "github",
+                url: "https://github.com/Andr3wRiv3rs/fos"
+            }
+        ],
+
+        left: true
+    }, 
 
     firefight: {
         title: "Firefig.ht",
@@ -334,21 +367,21 @@ export default {
     //     ]
     // }, 
     
-    shh: {
-        title: "Shh",
-        id: "shh",
+    // shh: {
+    //     title: "Shh",
+    //     id: "shh",
 
-        description: "A Peer to peer encrypted chat client built in Electron with WebRTC and WebSockets.",
+    //     description: "A Peer to peer encrypted chat client built in Electron with WebRTC and WebSockets.",
 
-        links: [
-            {
-                type: "github",
-                url: "https://github.com/Andr3wRiv3rs/Shh-Client"
-            }
-        ],
+    //     links: [
+    //         {
+    //             type: "github",
+    //             url: "https://github.com/Andr3wRiv3rs/Shh-Client"
+    //         }
+    //     ],
 
-        left: true
-    }, 
+    //     left: true
+    // }, 
     
     // bearmon: {
     //     title: "Bearmon",

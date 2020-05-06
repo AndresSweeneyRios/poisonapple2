@@ -105,7 +105,7 @@
         // overflow: hidden
         // position: fixed
         width: 100%
-        scroll-snap-type: y mandatory
+        // scroll-snap-type: y mandatory
         // scroll-snap-points-y: repeat(300px)
         // overflow-y: auto
 
