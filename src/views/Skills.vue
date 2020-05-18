@@ -99,7 +99,8 @@
                 ['Graphics', [
                     "Blender",
                     "MagicaVoxel",
-                    "GIMP",
+                    "Photoshop",
+                    "Figma",
                     "Inkscape",
                 ]],
             ]}
