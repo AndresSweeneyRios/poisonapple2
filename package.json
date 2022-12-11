@@ -10,7 +10,7 @@
   "dependencies": {
     "compression": "^1.7.4",
     "core-js": "^3.4.4",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "three": "^0.113.2",
     "vue": "^2.6.10",
     "vue-router": "^3.1.3"
